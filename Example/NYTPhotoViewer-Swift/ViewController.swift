@@ -14,7 +14,7 @@ class ViewController: UIViewController, NYTPhotosViewControllerDelegate {
     private let photos = PhotosProvider().photos
     
     @IBAction func buttonTapped(sender: UIButton) {
-        let photosViewController = NYTPhotosViewController(photos: self.photos)
+        let photosViewController = NYTPhotosViewController(photos: self.photos, delegate: nil)
         photosViewController.delegate = self
         presentViewController(photosViewController, animated: true, completion: nil)
         

@@ -32,7 +32,7 @@ typedef NS_ENUM(NSUInteger, NYTViewControllerPhotoIndex) {
 - (IBAction)imageButtonTapped:(id)sender {
     self.photos = [[self class] newTestPhotos];
     
-    NYTPhotosViewController *photosViewController = [[NYTPhotosViewController alloc] initWithPhotos:self.photos];
+    NYTPhotosViewController *photosViewController = [[NYTPhotosViewController alloc] initWithPhotos:self.photos delegate:nil];
     photosViewController.delegate = self;
     [self presentViewController:photosViewController animated:YES completion:nil];
     

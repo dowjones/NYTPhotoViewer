@@ -77,20 +77,22 @@ extern NSString * const NYTPhotosViewControllerDidDismissNotification;
  *  A convenience initializer that calls `initWithPhotos:initialPhoto:`, passing the first photo as the `initialPhoto` argument.
  *
  *  @param photos An array of objects conforming to the `NYTPhoto` protocol.
+ *  @param delegate An object conforming to NYTPhotosViewControllerDelegate.
  *
  *  @return A fully initialized object.
  */
-- (instancetype)initWithPhotos:(NSArray <id <NYTPhoto>> * _Nullable)photos;
+- (instancetype)initWithPhotos:(NSArray <id <NYTPhoto>> * _Nullable)photos delegate:(id <NYTPhotosViewControllerDelegate> _Nullable)delegate;
 
 /**
  *  The designated initializer that stores the array of objects conforming to the `NYTPhoto` protocol for display, along with specifying an initial photo for display.
  *
  *  @param photos An array of objects conforming to the `NYTPhoto` protocol.
  *  @param initialPhoto The photo to display initially. Must be contained within the `photos` array. If `nil` or not within the `photos` array, the first photo within the `photos` array will be displayed.
+ *  @param delegate An object conforming to NYTPhotosViewControllerDelegate.
  *
  *  @return A fully initialized object.
  */
-- (instancetype)initWithPhotos:(NSArray <id <NYTPhoto>> * _Nullable)photos initialPhoto:(id <NYTPhoto> _Nullable)initialPhoto NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPhotos:(NSArray <id <NYTPhoto>> * _Nullable)photos initialPhoto:(id <NYTPhoto> _Nullable)initialPhoto delegate:(id <NYTPhotosViewControllerDelegate> _Nullable)delegate NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Displays the specified photo. Can be called before the view controller is displayed. Calling with a photo not contained within the data source has no effect.

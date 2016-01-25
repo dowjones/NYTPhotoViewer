@@ -88,14 +88,14 @@ static const UIEdgeInsets NYTPhotosViewControllerCloseButtonImageInsets = {3, 0,
 #pragma mark - UIViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    return [self initWithPhotos:nil];
+    return [self initWithPhotos:nil delegate:nil];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
 
     if (self) {
-        [self commonInitWithPhotos:nil initialPhoto:nil];
+        [self commonInitWithPhotos:nil initialPhoto:nil delegate:nil];
     }
 
     return self;
@@ -152,21 +152,23 @@ static const UIEdgeInsets NYTPhotosViewControllerCloseButtonImageInsets = {3, 0,
 
 #pragma mark - NYTPhotosViewController
 
-- (instancetype)initWithPhotos:(NSArray *)photos {
-    return [self initWithPhotos:photos initialPhoto:photos.firstObject];
+- (instancetype)initWithPhotos:(NSArray <id <NYTPhoto>> * _Nullable)photos delegate:(id <NYTPhotosViewControllerDelegate> _Nullable)delegate {
+    return [self initWithPhotos:photos initialPhoto:photos.firstObject delegate:delegate];
 }
 
-- (instancetype)initWithPhotos:(NSArray *)photos initialPhoto:(id <NYTPhoto>)initialPhoto {
+- (instancetype)initWithPhotos:(NSArray <id <NYTPhoto>> * _Nullable)photos initialPhoto:(id <NYTPhoto> _Nullable)initialPhoto delegate:(id <NYTPhotosViewControllerDelegate> _Nullable)delegate {
     self = [super initWithNibName:nil bundle:nil];
     
     if (self) {
-        [self commonInitWithPhotos:photos initialPhoto:initialPhoto];
+        [self commonInitWithPhotos:photos initialPhoto:initialPhoto delegate:delegate];
     }
     
     return self;
 }
 
-- (void)commonInitWithPhotos:(NSArray *)photos initialPhoto:(id <NYTPhoto>)initialPhoto {
+- (void)commonInitWithPhotos:(NSArray *)photos initialPhoto:(id <NYTPhoto>)initialPhoto delegate:(id <NYTPhotosViewControllerDelegate>)delegate {
+    _delegate = delegate;
+    
     _dataSource = [[NYTPhotosDataSource alloc] initWithPhotos:photos];
     _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPanWithGestureRecognizer:)];
     _singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSingleTapWithGestureRecognizer:)];
