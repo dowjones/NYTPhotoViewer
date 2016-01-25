@@ -329,6 +329,20 @@ static const UIEdgeInsets NYTPhotosViewControllerCloseButtonImageInsets = {3, 0,
 - (void)updateImageForPhoto:(id <NYTPhoto>)photo {
     [self.notificationCenter postNotificationName:NYTPhotoViewControllerPhotoImageUpdatedNotification object:photo];
 }
+    
+- (void)updateLoadingViewForPhoto:(id <NYTPhoto> _Nullable)photo {
+    UIView *loadingView;
+    if ([self.delegate respondsToSelector:@selector(photosViewController:loadingViewForPhoto:)]) {
+        loadingView = [self.delegate photosViewController:self loadingViewForPhoto:photo];
+    }
+    
+    NSDictionary *userInfo = nil;
+    if (loadingView) {
+        userInfo = @{NYTPhotoViewControllerLoadingViewKey: loadingView};
+    }
+    
+    [self.notificationCenter postNotificationName:NYTPhotoViewControllerPhotoLoadingViewUpdatedNotification object:photo userInfo:userInfo];
+}
 
 #pragma mark - Gesture Recognizers
 
