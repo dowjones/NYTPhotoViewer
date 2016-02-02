@@ -15,8 +15,7 @@
     static NSBundle *resourceBundle = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSString *resourceBundlePath = [[NSBundle bundleForClass:[NYTPhotosViewController class]] pathForResource:@"NYTPhotoViewer" ofType:@"bundle"];
-        resourceBundle = [self bundleWithPath:resourceBundlePath];
+        resourceBundle = [NSBundle bundleWithIdentifier:@"com.dowjones.NYTPhotoViewer"];
     });
     return resourceBundle;
 }

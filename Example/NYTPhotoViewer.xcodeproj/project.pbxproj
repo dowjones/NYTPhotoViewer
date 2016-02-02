@@ -22,6 +22,7 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
+		828672321C5FD8A7008826EA /* NYTPhotoViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828672311C5FD8A7008826EA /* NYTPhotoViewer.framework */; };
 		8C4464E51ABCA3BA00BD79F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4464E41ABCA3BA00BD79F1 /* AppDelegate.swift */; };
 		8C4464E71ABCA3BA00BD79F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4464E61ABCA3BA00BD79F1 /* ViewController.swift */; };
 		8C4464EA1ABCA3BA00BD79F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4464E81ABCA3BA00BD79F1 /* Main.storyboard */; };
@@ -30,7 +31,6 @@
 		8C4465061ABCAAD100BD79F1 /* ExamplePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4465051ABCAAD100BD79F1 /* ExamplePhoto.swift */; };
 		8C838AC51AC7777D00D754D3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		934B3EA91BD54CE400953DC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
-		955BE815A0B486203B80D541 /* libPods-NYTPhotoViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1477DE9B8584BD5335F644E1 /* libPods-NYTPhotoViewer.a */; };
 		B5B252E11A8BE10B00E9973E /* NYTExamplePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B252E01A8BE10B00E9973E /* NYTExamplePhoto.m */; };
 		B5DC9D821A9D04D300F4F81F /* NYTPhotosViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DC9D811A9D04D300F4F81F /* NYTPhotosViewControllerTests.m */; };
 		B5DC9D831A9D062900F4F81F /* NYTExamplePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B252E01A8BE10B00E9973E /* NYTExamplePhoto.m */; };
@@ -87,6 +87,7 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		72DCB731DCC658F46D0B619E /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		828672311C5FD8A7008826EA /* NYTPhotoViewer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NYTPhotoViewer.framework; path = "Pods/../build/Debug-iphoneos/NYTPhotoViewer.framework"; sourceTree = "<group>"; };
 		8C3F25531ABCE816007BFF4E /* NYTPhotoViewer-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NYTPhotoViewer-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		8C4464E01ABCA3BA00BD79F1 /* NYTPhotoViewer-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NYTPhotoViewer-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4464E31ABCA3BA00BD79F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,10 +118,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828672321C5FD8A7008826EA /* NYTPhotoViewer.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				955BE815A0B486203B80D541 /* libPods-NYTPhotoViewer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +174,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				828672311C5FD8A7008826EA /* NYTPhotoViewer.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -751,6 +753,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NYTPhotoViewer/NYTPhotoViewer-Prefix.pch";
 				INFOPLIST_FILE = "NYTPhotoViewer/NYTPhotoViewer-Info.plist";
@@ -766,6 +772,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NYTPhotoViewer/NYTPhotoViewer-Prefix.pch";
 				INFOPLIST_FILE = "NYTPhotoViewer/NYTPhotoViewer-Info.plist";
